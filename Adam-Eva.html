@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Apple() {
+        this.weight = 10;
+        this.decrease = function () {
+            if (this.weight > 0) {
+                this.weight--;
+            }
+        };
+        this.isEmpty = function () {
+            return this.weight === 0;
+        };
+        this.getWeight = function () {
+            return this.weight
+        }
+    }
+
+    function Human(name, gender, weight) {
+        this.name = name;
+        this.gender = gender;
+        this.weight = weight;
+        this.checkApple = function (Apple) {
+            return Apple.isEmpty();
+        };
+        this.eat = function (Apple) {
+            Apple.decrease();
+            this.weight++;
+        };
+        this.getName = function (name) {
+            return this.name;
+        };
+        this.setName = function (name) {
+            this.name = name
+        };
+        this.getWeight = function () {
+            return this.weight
+        };
+    }
+
+    let apple = new Apple();
+    let Adam = new Human("Adam", "Male", 70);
+    let Eva = new Human("Eva", "Female", 50);
+    // Adam.setName("mike")
+    // console.log(Adam.getName());
+
+    console.log("weight's apple before be eaten" + apple.getWeight());
+    console.log("weight's Adam before eat the apple" + Adam.getWeight());
+    console.log("weight's Eva before eat the apple" + Eva.getWeight());
+
+    for (i = 0; apple.getWeight() > 0; i++) {
+        Adam.eat(apple);
+        Eva.eat(apple);
+        console.log("weight's apple after be eaten" + apple.weight);
+        console.log("weght's Adam after eat the apple" + Adam.weight);
+        console.log("weight's Eva after eat the apple" + Eva.weight);
+    }
+    // while (apple.getWeight() > 0) {
+    //     Adam.eat(apple);
+    //     if (apple.isEmpty()) {
+    //         break;
+    //     }
+    //     console.log("weight's apple after Adam eat" + apple.weight);
+    //     console.log("weght's Adam after eat the apple" + Adam.weight);
+    //     Eva.eat(apple);
+    //     if (apple.isEmpty()) {
+    //         break;
+    //     }
+    //     console.log("weight's apple after Eva eat" + apple.weight);
+    //     console.log("weight's Eva after eat the apple" + Eva.weight);
+    // }
+
+</script>
+</body>
+</html>
